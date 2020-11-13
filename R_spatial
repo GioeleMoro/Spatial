@@ -1,0 +1,26 @@
+#R spatial
+
+install.packages("sp")
+library(sp)
+
+data(meuse)
+
+head(meuse)
+
+coordinates(meuse) = ~x+y
+
+plot(meuse)
+
+#spplot is used to plot elements lieke zinc, lead etc. spread in space, usins spplot(nome datase, "nome colonna",main"titolo del grafico")
+spplot(meuse,"zinc",main="Concentration of zinc")
+spplot(meuse,"copper",main="Concentration of Copper")
+
+#see copper and zinc toghetere
+spplot(meuse, c("copper","zinc"))
+
+#Rather than using color, we can make use of bubbles
+bubble(meuse,"zinc")
+bubble(meuse,"copper")
+
+#we can change the colors of bubbles
+bubble(meuse, "lead", col="red")
