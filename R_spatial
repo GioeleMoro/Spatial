@@ -24,3 +24,41 @@ bubble(meuse,"copper")
 
 #we can change the colors of bubbles
 bubble(meuse, "lead", col="red")
+
+#....
+
+#import data from an external source
+#setwd("path/lab")
+
+#in case u could not create aa lab folder: 
+# setwd for Windows
+setwd("C:/lab/")
+ 
+# in case you could not create a lab folder:
+setwed("C:/")
+ 
+# setwd Mac
+setwd("/Users/yourname/lab/")
+ 
+# Linux
+setwd("~/lab/")
+
+
+#to tell R that the first line are names of the variable and not data
+covid <- read.table("covid_agg.csv", header=TRUE)
+
+covid
+
+summary(covid)
+
+names(covid)
+
+#ggplot2
+#dare al plot le coordinate con aes ( X= uno dei nomi showati prima, y = un altro nome))
+library(ggplot2)
+ggplot(covid, aes(x=lon, y= lat)) + geom_point()
+
+#let's change the size of this graph based on th nuber of cases aggiungendo ,size= nome del parametro che vuoi si basi su quello
+ggplot(covid, aes(x=lon, y=lat, size =cases)) +geom_point()
+
+
